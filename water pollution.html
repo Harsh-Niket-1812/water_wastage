@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about water pollution, its causes, effects, and how we can prevent it. Includes interactive graphs.">
+    <title>Water Pollution Awareness</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-image: url(https://images.pexels.com/photos/3614167/pexels-photo-3614167.jpeg?cs=srgb&dl=pexels-lucianphotography-3614167.jpg&fm=jpg);
+            color: whitesmoke;
+            padding: 20px;
+            text-align: center;
+            height: 200px;
+        }
+        nav {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        section {
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+        .content {
+            margin: 20px 0;
+        }
+        canvas {
+            display: block;
+            max-width: 100%;
+            height: 400px;
+            margin: 0 auto;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Understanding Water Pollution</h1><br>
+        <p>Causes, Effects, and How to Prevent It</p>
+    </header>
+
+    <nav>
+        <a href="#causes">Causes</a>
+        <a href="#effects">Effects</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#graphs">Graphs</a>
+    </nav>
+
+    <section class="container">
+        <div class="content" id="causes">
+            <h2>Causes of Water Pollution</h2>
+            <p>Water pollution is caused by harmful chemicals and biological contaminants being released into bodies of water. Major causes include:</p>
+            <ul>
+                <li>Industrial waste</li>
+                <li>Agricultural runoff (pesticides, fertilizers)</li>
+                <li>Oil spills</li>
+                <li>Plastic and other solid waste</li>
+                <li>Sewage and wastewater</li>
+                <li>Mining activities</li>
+            </ul>
+        </div>
+
+        <div class="content" id="effects">
+            <h2>Effects of Water Pollution</h2>
+            <p>Water pollution has serious consequences for human health, aquatic life, and ecosystems:</p>
+            <ul>
+                <li>Waterborne diseases such as cholera and dysentery</li>
+                <li>Destruction of aquatic ecosystems</li>
+                <li>Contaminated drinking water supplies</li>
+                <li>Eutrophication, causing algal blooms and oxygen depletion</li>
+                <li>Damage to marine life due to plastic ingestion and toxic waste</li>
+            </ul>
+        </div>
+
+        <div class="content" id="solutions">
+            <h2>How to Reduce Water Pollution</h2>
+            <p>There are several actions that can be taken to reduce water pollution:</p>
+            <ul>
+                <li>Proper treatment of industrial and sewage waste</li>
+                <li>Reducing the use of harmful pesticides and fertilizers</li>
+                <li>Cleaning up oil spills and controlling plastic waste</li>
+                <li>Implementing stronger water protection policies</li>
+                <li>Promoting water conservation and recycling</li>
+            </ul>
+        </div>
+
+        <div class="content" id="graphs">
+            <h2>Water Pollution Statistics</h2>
+            <p>Below are interactive graphs that display water pollution data and trends:</p>
+
+            <!-- Chart 1: Global Water Pollution Over Time -->
+            <h3>Industrial Wastewater Discharge (Billion Liters per Year)</h3>
+            <canvas id="wastewaterChart"></canvas>
+
+            <!-- Chart 2: Water Pollution by Region -->
+            <h3>Plastic Waste in Oceans by Region (Million Tons)</h3>
+            <canvas id="plasticWasteChart"></canvas>
+        </div>
+    </section>
+
+    <footer>
+        <p>  &reg; 2024 Water Pollution Awareness. All rights reserved.</p>
+    </footer>
+
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Wastewater Discharge Over Time Chart
+        const ctx1 = document.getElementById('wastewaterChart').getContext('2d');
+        const wastewaterChart = new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['2000', '2005', '2010', '2015', '2020', '2024'],
+                datasets: [{
+                    label: 'Wastewater Discharge (Billion Liters)',
+                    data: [120, 140, 160, 180, 200, 220],
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderWidth: 2,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Plastic Waste in Oceans by Region Chart
+        const ctx2 = document.getElementById('plasticWasteChart').getContext('2d');
+        const plasticWasteChart = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['North America', 'Europe', 'Asia', 'Africa', 'Australia'],
+                datasets: [{
+                    label: 'Plastic Waste in Oceans (Million Tons)',
+                    data: [3.5, 2.8, 8.1, 4.5, 1.2],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

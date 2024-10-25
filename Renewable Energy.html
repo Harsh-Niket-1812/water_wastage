@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about renewable energy sources like solar, wind, geothermal, and more.">
+    <title>Renewable Energy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-image: url(https://png.pngtree.com/thumb_back/fw800/background/20230721/pngtree-d-illustration-of-isolated-white-background-with-renewable-energy-sources-to-image_3718762.jpg);
+            padding: 20px;
+            text-align: center;
+            color: black;
+            height: 200px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            padding: 14px 20px;
+            display: block;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .content {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Renewable Energy: Powering a Sustainable Future</h1>
+    </header>
+    
+    <nav>
+        <a href="#about">About</a>
+        <a href="#types">Types of Renewable Energy</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#challenges">Challenges</a>
+        <a href="#conclusion">Conclusion</a>
+    </nav>
+
+    <div class="content">
+        <section id="about">
+            <h2>What is Renewable Energy?</h2>
+            <p>Renewable energy refers to energy sources that are naturally replenished and sustainable over the long term. These include solar, wind, geothermal, and hydropower, among others. Unlike fossil fuels, renewable energy produces little to no greenhouse gas emissions, making it a cleaner option for the environment.</p>
+            <img src="https://example.com/renewable_energy.jpg" alt="Renewable energy image">
+        </section>
+
+        <section id="types">
+            <h2>Types of Renewable Energy</h2>
+            <ul>
+                <li><strong>Solar Energy:</strong> Energy harnessed from the sun's rays using solar panels.</li>
+                <li><strong>Wind Energy:</strong> Power generated from wind turbines capturing wind flow.</li>
+                <li><strong>Hydropower:</strong> Energy produced from the movement of water, typically in rivers or dams.</li>
+                <li><strong>Geothermal Energy:</strong> Heat energy from beneath the Earth's surface.</li>
+                <li><strong>Biomass Energy:</strong> Energy generated from organic materials like plants and animal waste.</li>
+            </ul>
+        </section>
+
+        <section id="charts">
+            <h2>Renewable Energy Growth (2000-2024)</h2>
+            <div class="chart-container">
+                <canvas id="growthChart"></canvas>
+            </div>
+
+            <h2>Energy Mix: Renewable vs Non-Renewable</h2>
+            <div class="chart-container">
+                <canvas id="energyMixChart"></canvas>
+            </div>
+        </section>
+
+        <section id="benefits">
+            <h2>Benefits of Renewable Energy</h2>
+            <ul>
+                <li>Reduces greenhouse gas emissions and air pollution.</li>
+                <li>Helps mitigate climate change impacts.</li>
+                <li>Renewable sources are abundant and can be replenished.</li>
+                <li>Creates job opportunities in emerging green industries.</li>
+                <li>Reduces reliance on imported fossil fuels.</li>
+            </ul>
+        </section>
+
+        <section id="challenges">
+            <h2>Challenges of Renewable Energy</h2>
+            <p>Despite its benefits, renewable energy faces several challenges, including high initial costs, energy storage limitations, and geographic dependency. For instance, solar energy is only available during daylight, and wind energy is dependent on wind speeds, which may fluctuate.</p>
+        </section>
+
+        <section id="conclusion">
+            <h2>Conclusion</h2>
+            <p>Renewable energy is essential for a sustainable and cleaner future. Governments, businesses, and individuals must continue to invest in renewable technologies to reduce our dependence on fossil fuels and combat climate change.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p> &reg; 2024 Renewable Energy Website | Designed by [Your Name]</p>
+    </footer>
+
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // Growth of Renewable Energy Data
+        const growthData = {
+            labels: ['2000', '2005', '2010', '2015', '2020', '2024'],
+            datasets: [{
+                label: 'Renewable Energy Growth (GW)',
+                data: [200, 300, 450, 600, 800, 1200],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                fill: true,
+                tension: 0.4
+            }]
+        };
+
+        const growthConfig = {
+            type: 'line',
+            data: growthData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        // Energy Mix Data
+        const energyMixData = {
+            labels: ['Renewable', 'Non-Renewable'],
+            datasets: [{
+                label: 'Energy Mix 2024',
+                data: [35, 65],
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 99, 132, 0.6)'
+                ],
+                hoverOffset: 4
+            }]
+        };
+
+        const energyMixConfig = {
+            type: 'doughnut',
+            data: energyMixData,
+        };
+
+        // Render charts
+        const growthChart = new Chart(
+            document.getElementById('growthChart'),
+            growthConfig
+        );
+
+        const energyMixChart = new Chart(
+            document.getElementById('energyMixChart'),
+            energyMixConfig
+        );
+    </script>
+</body>
+</html>

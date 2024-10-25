@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about air pollution, its causes, effects, and how we can reduce it. Includes interactive graphs.">
+    <title>Air Pollution Awareness</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHyy2Ow0iG9bPDzEEYXGpV65XUX-xhCDxCXw&s);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            height: 200px;
+        }
+        nav {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        section {
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+        .content {
+            margin: 20px 0;
+        }
+        canvas {
+            display: block;
+            max-width: 100%;
+            height: 400px;
+            margin: 0 auto;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Understanding Air Pollution</h1>
+        <p>Causes, Effects, and How to Prevent It</p>
+    </header>
+
+    <nav>
+        <a href="#causes">Causes</a>
+        <a href="#effects">Effects</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#graphs">Graphs</a>
+    </nav>
+
+    <section class="container">
+        <div class="content" id="causes">
+            <h2>Causes of Air Pollution</h2>
+            <p>Air pollution is caused by harmful substances including gases, particulates, and biological molecules that are introduced into Earth's atmosphere. Sources of air pollution include:</p>
+            <ul>
+                <li>Industrial emissions</li>
+                <li>Vehicle exhaust</li>
+                <li>Burning fossil fuels</li>
+                <li>Agricultural activities</li>
+                <li>Waste disposal</li>
+                <li>Natural events like wildfires and volcanoes</li>
+            </ul>
+        </div>
+
+        <div class="content" id="effects">
+            <h2>Effects of Air Pollution</h2>
+            <p>Air pollution has numerous harmful effects on human health, wildlife, and the environment:</p>
+            <ul>
+                <li>Respiratory issues like asthma and bronchitis</li>
+                <li>Increased risk of cardiovascular diseases</li>
+                <li>Damage to ecosystems and wildlife habitats</li>
+                <li>Global warming and climate change</li>
+                <li>Acid rain that harms crops, forests, and water bodies</li>
+            </ul>
+        </div>
+
+        <div class="content" id="solutions">
+            <h2>How to Reduce Air Pollution</h2>
+            <p>There are various steps that individuals and governments can take to reduce air pollution:</p>
+            <ul>
+                <li>Transitioning to renewable energy sources like solar and wind</li>
+                <li>Using public transportation, carpooling, and biking</li>
+                <li>Implementing stricter regulations on industrial emissions</li>
+                <li>Promoting recycling and reducing waste</li>
+                <li>Supporting reforestation and green spaces</li>
+            </ul>
+        </div>
+
+        <div class="content" id="graphs">
+            <h2>Air Pollution Statistics</h2>
+            <p>Below are graphs representing air pollution trends over the years:</p>
+
+            <!-- Chart 1: Air Pollution Over Time -->
+            <h3>Global CO2 Emissions (in Billion Metric Tons)</h3>
+            <canvas id="co2Chart"></canvas>
+
+            <!-- Chart 2: Air Pollution by Region -->
+            <h3>Air Pollution by Region (PM2.5 Levels)</h3>
+            <canvas id="regionChart"></canvas>
+        </div>
+    </section>
+
+    <footer>
+        <p> &reg; 2024 Air Pollution Awareness. All rights reserved.</p>
+    </footer>
+
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // CO2 Emissions Over Time Chart
+        const ctx1 = document.getElementById('co2Chart').getContext('2d');
+        const co2Chart = new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['1990', '2000', '2010', '2020', '2024'],
+                datasets: [{
+                    label: 'Global CO2 Emissions (Billion Metric Tons)',
+                    data: [22.3, 24.9, 29.7, 33.1, 36.5],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderWidth: 2,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Air Pollution by Region Chart
+        const ctx2 = document.getElementById('regionChart').getContext('2d');
+        const regionChart = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['North America', 'Europe', 'Asia', 'Africa', 'Australia'],
+                datasets: [{
+                    label: 'PM2.5 Levels (µg/m³)',
+                    data: [12, 18, 34, 45, 10],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

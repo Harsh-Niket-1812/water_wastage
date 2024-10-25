@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about green chemistry practices, their principles, and impact on sustainable development. Includes interactive graphs.">
+    <title>Green Chemistry Practices</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-image: url(https://img.freepik.com/free-photo/lab-glassware-with-green-background_23-2149731527.jpg);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            height: 200px;
+        }
+        nav {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        section {
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+        .content {
+            margin: 20px 0;
+        }
+        canvas {
+            display: block;
+            max-width: 100%;
+            height: 400px;
+            margin: 0 auto;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Green Chemistry Practices</h1>
+        <p>Principles, Practices, and Impact on Sustainability</p>
+    </header>
+
+    <nav>
+        <a href="#principles">Principles</a>
+        <a href="#practices">Practices</a>
+        <a href="#impact">Impact</a>
+        <a href="#graphs">Graphs</a>
+    </nav>
+
+    <section class="container">
+        <div class="content" id="principles">
+            <h2>12 Principles of Green Chemistry</h2>
+            <p>Green chemistry is built upon 12 key principles that aim to reduce or eliminate the use and generation of hazardous substances:</p>
+            <ul>
+                <li>Prevention: Avoiding waste rather than treating it after it's created</li>
+                <li>Atom Economy: Maximizing the incorporation of materials into the final product</li>
+                <li>Less Hazardous Synthesis: Using less toxic materials</li>
+                <li>Designing Safer Chemicals: Producing chemicals that are effective with minimal toxicity</li>
+                <li>Safer Solvents and Auxiliaries: Reducing or eliminating the use of harmful solvents</li>
+                <li>Energy Efficiency: Minimizing energy consumption by using renewable resources</li>
+                <li>Use of Renewable Feedstocks: Using renewable raw materials</li>
+                <li>Reduce Derivatives: Reducing the number of steps that create chemical derivatives</li>
+                <li>Catalysis: Using catalytic reactions to increase efficiency</li>
+                <li>Design for Degradation: Designing chemicals that break down into harmless substances</li>
+                <li>Real-Time Analysis: Monitoring processes to prevent pollution</li>
+                <li>Inherently Safer Chemistry: Minimizing accidents and hazardous reactions</li>
+            </ul>
+        </div>
+
+        <div class="content" id="practices">
+            <h2>Common Green Chemistry Practices</h2>
+            <p>Green chemistry practices are applied across various industries to promote sustainability. These include:</p>
+            <ul>
+                <li>Use of biodegradable materials in manufacturing</li>
+                <li>Implementation of cleaner production processes</li>
+                <li>Substitution of toxic chemicals with safer alternatives</li>
+                <li>Adoption of energy-efficient synthesis techniques</li>
+                <li>Waste minimization and recycling of by-products</li>
+                <li>Use of non-polluting solvents and renewable resources</li>
+            </ul>
+        </div>
+
+        <div class="content" id="impact">
+            <h2>Impact of Green Chemistry on Sustainability</h2>
+            <p>Green chemistry plays a crucial role in sustainable development by reducing the environmental footprint of industrial processes. Key benefits include:</p>
+            <ul>
+                <li>Reduction in hazardous waste and pollutants</li>
+                <li>Energy savings through more efficient processes</li>
+                <li>Improved safety for workers and consumers</li>
+                <li>Decreased reliance on non-renewable resources</li>
+                <li>Encouraging innovation in sustainable materials and technologies</li>
+            </ul>
+        </div>
+
+        <div class="content" id="graphs">
+            <h2>Green Chemistry Trends</h2>
+            <p>Below are interactive graphs showcasing the impact of green chemistry over time:</p>
+
+            <!-- Chart 1: Adoption of Green Chemistry by Industry -->
+            <h3>Adoption of Green Chemistry by Industry (Percentage of Processes)</h3>
+            <canvas id="adoptionChart"></canvas>
+
+            <!-- Chart 2: Reduction in Hazardous Waste from Green Chemistry (Million Tons) -->
+            <h3>Reduction in Hazardous Waste (Million Tons)</h3>
+            <canvas id="wasteReductionChart"></canvas>
+        </div>
+    </section>
+
+    <footer>
+        <p>  &reg; 2024 Green Chemistry Awareness. All rights reserved.</p>
+    </footer>
+
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Adoption of Green Chemistry by Industry Chart
+        const ctx1 = document.getElementById('adoptionChart').getContext('2d');
+        const adoptionChart = new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['Pharmaceuticals', 'Agriculture', 'Manufacturing', 'Energy', 'Textiles'],
+                datasets: [{
+                    label: 'Green Chemistry Adoption (%)',
+                    data: [65, 55, 75, 60, 50],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Reduction in Hazardous Waste from Green Chemistry Chart
+        const ctx2 = document.getElementById('wasteReductionChart').getContext('2d');
+        const wasteReductionChart = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ['2000', '2005', '2010', '2015', '2020', '2024'],
+                datasets: [{
+                    label: 'Hazardous Waste Reduction (Million Tons)',
+                    data: [300, 320, 340, 380, 410, 450],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderWidth: 2,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: false
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
